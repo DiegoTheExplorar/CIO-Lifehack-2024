@@ -2,20 +2,35 @@ import geopandas as gpd
 from shapely.geometry import Point
 from sklearn.cluster import DBSCAN
 import numpy as np
+from DataCleaning import preprocess
 
-# Create geometry column
-geometry = [Point(xy) for xy in zip(crime_data.longitude, crime_data.latitude)]
-gdf = gpd.GeoDataFrame(crime_data, geometry=geometry)
+def cluster():
+    
+    crime_data = preprocess('City_of_Chicago_Crime_Data.csv')
+    print('Started Cluster Function')
+    # Create geometry column
+    geometry = [Point(xy) for xy in zip(crime_data.longitude, crime_data.latitude)]
+    gdf = gpd.GeoDataFrame(crime_data, geometry=geometry)
+    print('Prepared Data for clustering')
+    # Prepare data for clustering
+    X = np.array(list(zip(gdf.longitude, gdf.latitude)))
+    print('Starting DBSCAN')
+    # DBSCAN clustering
+    db = DBSCAN(eps=0.0015, min_samples=5).fit(X)
+    labels = db.labels_
+    print('Finished DBSCAN')
+    # Add cluster labels to GeoDataFrame
+    gdf['cluster'] = labels
 
-# Prepare data for clustering
-X = np.array(list(zip(gdf.longitude, gdf.latitude)))
+    # Save the clustered GeoDataFrame
+    gdf.to_csv('clustered_data2.csv', index=False)
+    print(f'Clustered data saved')
+    num_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+    print("Number of clusters:", num_clusters)
 
-# DBSCAN clustering
-db = DBSCAN(eps=0.01, min_samples=10).fit(X)
-labels = db.labels_
+    # Just to check if code works
+    print(gdf.head())
+    print('DBSCAN done')
+    return gdf
 
-# Add cluster labels to GeoDataFrame
-gdf['cluster'] = labels
-
-#just to check if code works
-print(gdf.head())
+cluster()
