@@ -58,9 +58,8 @@ We aim to enhance our model's accuracy in predicting crime hotspots by incorpora
    python3 -m venv env_name
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    pip install -r requirements.txt
-
-   Alternatively create your own python environment on VScode with ctrl+shift+p. VScode will automatically detect the requirements.txt file and automatically download the necessary files for the python environment
    ```
+Alternatively create your own python environment on VScode with ctrl+shift+p. VScode will automatically detect the requirements.txt file and automatically download the necessary files for the python environment
 
 ## Usage
 
