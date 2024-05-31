@@ -9,12 +9,14 @@ from DataCleaning import preprocess
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
+from newHotspotToList import newHotspotToList
+from file_converter import file_converter
+from TSP_multiple import TSP_multiple
+
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Necessary for flash messages
 
 # Load the data once and use it throughout the app's lifetime
-file_path = 'open_street_map_tsp_node_data.csv'
-data = pd.read_csv(file_path, header=None)
 
 # Define the place and create the graph from OSMnx
 place_name = "Chicago, Illinois, USA"
@@ -59,7 +61,11 @@ def upload_file():
             
             median_coordinates_only = cluster_medians[['Median_Coordinates']].rename(columns={'Median_Coordinates': 'coordinates'})
             median_coordinates_only.to_csv('Predictions2.csv', index=False)
-            
+        
+            newHotspotToList()
+            file_converter()
+            TSP_multiple()
+
             # Generate the map
             map = folium.Map(location=[41.8781, -87.6298], zoom_start=10)
             coords_list = []
@@ -74,6 +80,9 @@ def upload_file():
             
             # Return the HTML response with the embedded map and navigation buttons
             return render_template('map.html', map_html=Markup(map_html))
+
+file_path = 'open_street_map_tsp_node_data.csv'
+data = pd.read_csv(file_path, header=None)
 
 @app.route('/district', methods=['GET', 'POST'])
 def district_index():
