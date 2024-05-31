@@ -4,9 +4,8 @@ from sklearn.cluster import DBSCAN
 import numpy as np
 from DataCleaning import preprocess
 
-def cluster():
-    
-    crime_data = preprocess('City_of_Chicago_Crime_Data.csv')
+def cluster(file):
+    crime_data = preprocess(file)
     print('Started Cluster Function')
     # Create geometry column
     geometry = [Point(xy) for xy in zip(crime_data.longitude, crime_data.latitude)]
@@ -23,8 +22,8 @@ def cluster():
     gdf['cluster'] = labels
 
     # Save the clustered GeoDataFrame
-    gdf.to_csv('clustered_data2.csv', index=False)
-    print(f'Clustered data saved')
+    #gdf.to_csv('clustered_data2.csv', index=False)
+    #print(f'Clustered data saved')
     num_clusters = len(set(labels)) - (1 if -1 in labels else 0)
     print("Number of clusters:", num_clusters)
 
@@ -33,4 +32,3 @@ def cluster():
     print('DBSCAN done')
     return gdf
 
-cluster()
