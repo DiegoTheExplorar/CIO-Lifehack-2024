@@ -50,7 +50,6 @@ We aim to enhance our model's accuracy in predicting crime hotspots by incorpora
 
    ```bash
    git clone https://github.com/DiegoTheExplorar/CIO-Lifehack-2024.git
-   cd CrimeWhere
    ```
 
 2. **Set up the Flask environment:**
