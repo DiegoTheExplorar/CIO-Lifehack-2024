@@ -65,6 +65,9 @@ def upload_file():
             newHotspotToList()
             file_converter()
             TSP_multiple()
+            file_path = 'open_street_map_tsp_node_data.csv'
+            global data
+            data = pd.read_csv(file_path, header=None)
 
             # Generate the map
             map = folium.Map(location=[41.8781, -87.6298], zoom_start=10)
@@ -81,8 +84,7 @@ def upload_file():
             # Return the HTML response with the embedded map and navigation buttons
             return render_template('map.html', map_html=Markup(map_html))
 
-file_path = 'open_street_map_tsp_node_data.csv'
-data = pd.read_csv(file_path, header=None)
+
 
 @app.route('/district', methods=['GET', 'POST'])
 def district_index():
