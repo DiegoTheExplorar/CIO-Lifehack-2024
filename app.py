@@ -46,6 +46,7 @@ def upload_file():
         median_coordinates_only.to_csv('Predictions2.csv', index=False)
         
         # Generate the map
+        #This is where Chicago is can be changed to Singapore
         map = folium.Map(location=[41.8781, -87.6298], zoom_start=10)
         coords_list = []
         

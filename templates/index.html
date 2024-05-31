@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload File</title>
+    <title>CrimeWhere</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,17 +43,32 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-        h1 {
-            text-align: center;
+        label {
+            margin-bottom: 5px;
             color: #333;
+            font-weight: bold;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Upload a CSV File</h1>
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".csv">
+        <div class="title">CrimeWhere</div>
+        <label for="crimeData">Upload a CSV file with crime data:</label>
+        <input type="file" id="crimeData" name="file" accept=".csv">
         <input type="submit" value="Submit">
+        <div class="footer">Brought to you by Team CIO</div>
     </form>
 </body>
 </html>
