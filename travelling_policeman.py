@@ -44,6 +44,7 @@ nx.set_edge_attributes(complete_graph, {(i, j): distance_matrix[i][j] for i in r
 # Solve the TSP using the approximation algorithm
 tsp_path = traveling_salesman_problem(complete_graph, cycle=True)
 tsp_cycle = [hotspot_nodes[i] for i in tsp_path]
+tsp_coords = [coordinate_tuples[i] for i in tsp_path]
 
 
 
@@ -56,6 +57,11 @@ for i in range(len(tsp_cycle) - 1):
 # Add the path from the last node back to the first to complete the cycle
 final_leg = nx.shortest_path(G, tsp_cycle[-1], tsp_cycle[0], weight='length')
 routes.extend(final_leg)
+
+
+print(routes)
+
+
 
 fig, ax = ox.plot_graph_route(G, routes, route_linewidth=1, node_size=0, bgcolor='k', orig_dest_size=0, route_color='r')
 fig.savefig("chicago_tsp_route.png", dpi=1000)

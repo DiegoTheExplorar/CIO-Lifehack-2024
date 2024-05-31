@@ -50,8 +50,8 @@ print("Optimized Patrol Route:", tsp_path)
 route_nodes = [hotspot_nodes[i] for i in tsp_path]
 
 # Ensure the route is correctly interpreted as a list of routes
-routes = [route_nodes] * 5
+routes = (route_nodes)
 
 # Plot the routes
-fig, ax = ox.plot_graph_routes(G, routes, route_linewidth=6, node_size=0, bgcolor='k')
+fig, ax = ox.plot_graph_route(G, routes, route_linewidth=6, node_size=0, bgcolor='k')
 plt.show()
