@@ -78,12 +78,18 @@ def upload_file():
 @app.route('/district', methods=['GET', 'POST'])
 def district_index():
     if request.method == 'POST':
-        district_to_plot = int(request.form['district'])
-        return redirect(url_for('display_map', district=district_to_plot))
+        # This block runs when form data is submitted
+        district_to_plot = request.form.get('district')
+        if district_to_plot:
+            return redirect(url_for('display_map', district=district_to_plot))
+        else:
+            flash('No district selected')
+            return redirect(url_for('district_index'))
     else:
-        # Extracting unique districts from the CSV
+        # This block runs when just navigating to the form
         districts = sorted(set(data[0].astype(int)))
         return render_template('index2.html', districts=districts)
+
 
 @app.route('/map/<district>')
 def display_map(district):

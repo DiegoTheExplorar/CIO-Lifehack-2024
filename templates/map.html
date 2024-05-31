@@ -6,11 +6,9 @@
 <body>
     {{ map_html|safe }}
     <br>
-    <!-- Form that submits to the /district route (index2.html) -->
-    <form action="{{ url_for('district_index') }}" method="POST">
-        <!-- If you need to send specific data, use hidden inputs or other form elements -->
-        <input type="hidden" name="district" value="1"> <!-- Replace 1 with actual district logic if needed -->
-        <button type="submit">Go to District Analysis</button>
+    <!-- Change method to GET if just navigating -->
+    <form action="{{ url_for('district_index') }}" method="GET">
+        <button type="submit">Go to District Selection</button>
     </form>
 </body>
 </html>

@@ -4,13 +4,13 @@
     <title>Select District</title>
 </head>
 <body>
-    <form action="/" method="post">
+    <form action="{{ url_for('district_index') }}" method="post">
         <select name="district">
             {% for district in districts %}
             <option value="{{ district }}">{{ district }}</option>
             {% endfor %}
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">Display Map</button>
     </form>
 </body>
 </html>
