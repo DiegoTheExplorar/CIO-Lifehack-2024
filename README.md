@@ -49,47 +49,40 @@ We aim to enhance our model's accuracy in predicting crime hotspots by incorpora
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/CrimeWhere.git
+   git clone https://github.com/DiegoTheExplorar/CIO-Lifehack-2024.git
    cd CrimeWhere
    ```
 
-2. **Set up the backend:**
+2. **Set up the Flask environment:**
 
    ```bash
-   cd backend
    python3 -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    pip install -r requirements.txt
    ```
 
-3. **Set up the frontend:**
-
-   ```bash
-   cd ../crime-analysis-app
-   npm install
-   npm run build
-   ```
-
 ## Usage
 
-1. **Run the backend:**
+1. **Run the Flask application:**
 
    ```bash
-   cd backend
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   python actuallysuper.py
+   export FLASK_APP=actuallysuper.py
+   export FLASK_ENV=development
+   flask run
    ```
 
-2. **Run the frontend:**
+   On Windows, use `set` instead of `export`:
 
    ```bash
-   cd ../crime-analysis-app
-   npm start
+   set FLASK_APP=actuallysuper.py
+   set FLASK_ENV=development
+   flask run
    ```
 
-3. **Open your browser:**
+2. **Open your browser:**
 
-   Navigate to `http://localhost:3000` to use the application.
+   Navigate to `http://localhost:5000` to use the application.
 
 ## Contributing
 
