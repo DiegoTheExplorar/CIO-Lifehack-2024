@@ -55,7 +55,7 @@ We aim to enhance our model's accuracy in predicting crime hotspots by incorpora
 2. **Set up the Flask environment:**
 
    ```bash
-   python3 -m venv venv
+   python3 -m venv env_name
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    pip install -r requirements.txt
    ```
