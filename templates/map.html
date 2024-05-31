@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map View</title>
+</head>
+<body>
+    {{ map_html|safe }}
+    <br>
+    <!-- Change method to GET if just navigating -->
+    <form action="{{ url_for('district_index') }}" method="GET">
+        <button type="submit">Go to District Selection</button>
+    </form>
+</body>
+</html>
