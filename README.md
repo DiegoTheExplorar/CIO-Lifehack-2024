@@ -62,11 +62,11 @@ Alternatively create your own python environment on VScode with ctrl+shift+p. VS
 
    ```bash
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   export FLASK_APP=actuallysuper.py
+   export FLASK_APP=actualsuper.py
    export FLASK_ENV=development
    flask run
    ```
-
+   or go to actualsuper.py and run the file
    On Windows, use `set` instead of `export`:
 
    ```bash
