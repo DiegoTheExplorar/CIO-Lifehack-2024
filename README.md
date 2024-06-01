@@ -66,7 +66,7 @@ Alternatively create your own python environment on VScode with ctrl+shift+p. VS
    export FLASK_ENV=development
    flask run
    ```
-   or go to actualsuper.py and run the file
+   
    On Windows, use `set` instead of `export`:
 
    ```bash
@@ -74,8 +74,9 @@ Alternatively create your own python environment on VScode with ctrl+shift+p. VS
    set FLASK_ENV=development
    flask run
    ```
-
-2. **Open your browser:**
+   or go to actualsuper.py and execute the file
+   
+3. **Open your browser:**
 
    Navigate to `http://localhost:5000` to use the application.
 
