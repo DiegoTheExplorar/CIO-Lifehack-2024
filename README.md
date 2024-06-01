@@ -16,33 +16,28 @@ CrimeWhere is a web application designed to enhance urban safety by optimizing p
 - [Contributing](#contributing)
 - [License](#license)
 
+Devpost
+
 ## Inspiration
+Our world is constantly changing and evolving. Instability, nationalism and threats to peace are on the rise in every corner of the globe. Here in Singapore, we are not sheltered from the fallouts of Geopolitical events, nor are we immune to threats to our small nation’s stability. Domestic security is something that concerns us, for everybody wants to live in safety. With this view, the problem statement on strengthening our domestic security resonated with us the most. We know that government agencies, such as the police force do their best to protect us. We also know that they would seek to optimise their manpower and resources as much as possible, to be able to help anyone in times of need. One manner in which they keep our communities safe is by patrolling around our heartlands and neighbourhoods, with the aim of deterring criminals and helping people in need, yet because of limited resources, need to do so efficiently. We felt that this was a technical problem that we would be able to make a meaningful contribution towards solving, and thus embarked on it.
 
-When looking through all the problem statements, the one on strengthening domestic security intrigued us the most. We often complain about inefficiencies we observe around us, and this was a prime opportunity to make a meaningful impact in an important field. We were convinced that this is what we should work on.
-
-## What it does
-
-First, you upload a CSV file with the city's crime data, detailing where and when crimes occurred over a period. The website processes this data, clusters different locations, and uses an ML model to predict future crime hotspots. Using this information, we apply the Traveling Salesman Problem algorithm to find the optimal path for a police patrol vehicle in any given district within the police station's jurisdiction. This path is then displayed on a map for the officers' reference.
+## What it does 
+There are a few steps for the end users. Firstly, they upload a CSV file containing the crime data in the jurisdiction, containing details of locations of crimes committed over a sufficient period of time. The web app processes this data, clusters different locations, and then uses a Machine Learning model to predict future crime hotspots. This data is then plotted onto a map for reference. Following that. the information is then used, together with data on police force districts (within the jurisdiction) in a Geojson file and data on neighbourhood police stations in a CSV file, to classify predicted future crime hotspots into the district they are expected to occur in. Then, a Travelling Salesman Problem algorithm is used to find an optimal path for a police patrol in the district, and this path is then displayed on a map for the planning officers’ reference.
 
 ## How we built it
-
-We used Flask for the backend, coding the entire logic of the website in Python. The frontend was developed using HTML and CSS.
+The backend is managed by Flask in Python. The functions for the clustering and Machine Learning algorithm were called from libraries like RandomForestClassifier and DBScan clustering libraries. The functions for location classification were obtained from the Pandas and GeoPandas libraries. Finally, the functions for the TSP algorithm and mapping display were obtained from Folium, GeoPy and NetworkX libraries, and OpenStreetMap APIs.
 
 ## Challenges we ran into
+The biggest challenge was debugging the backend for our web app. We do not have significant expertise in this area and are relatively new to full stack development, and thus getting the backend functional and ensuring the intended functionality of the system. Following that, integration of the front end and user interface for our web app was also a challenge, but we managed to overcome this with less difficulty than debugging the back end. In particular, creating the map visualisations was not easy. Finally, it was difficult to find a site that could host the entirety of our web app, including the backend functionality, due to the slightly large space and computational resource demands that free web hosting services do not provide, and thus we were unable to deploy our project from a web server, and instead it has to be run from a local server.
 
-The biggest challenge was integrating the frontend with our backend. Since all of us are new to frontend development, getting the code right and hosting it was a significant hurdle. Adapting to new libraries and APIs, such as GeoPandas, Folium, and OpenStreetMap, and making them work as needed was also challenging.
-
-## Accomplishments that we're proud of
-
-We successfully built our first full-stack project within just 48 hours, including a machine learning model and mapping functionalities. We learned a lot through trial and error. Despite the tiring process, we gained valuable software engineering skills.
+## Accomplishments that we’re proud of
+We successfully built a full-stack project in just 48 hours, from ideation to a functioning product. This included creating and using a machine learning model, data cleaning and clustering functionality, and mapping functionality. We learnt a lot through tireless trial and error, but gained much insight into web development and a software engineering process.
 
 ## What we learned
+We learned how to build a functional backend with significant time constraints, and successfully integrate it with a simple front end user interface. We also learned to use all the APIs and libraries that were mentioned earlier, along with refining our skills in implementing a machine learning model, and data cleaning and clustering functions.
 
-We learned how to build a functional frontend and integrate it with the backend. We also learned to use APIs for mapping software and gained basic data analysis skills.
-
-## What's next for CrimeWhere
-
-We aim to enhance our model's accuracy in predicting crime hotspots by incorporating more variables. Additionally, we plan to make the final map more interactive, providing real-time guidance for patrol officers.
+## What’s next for CrimeWhere
+We aim to increase the accuracy of the predictions provided by the model by incorporating a larger number of variables that would be more reflective of real-world conditions and factors that can lead to variations in crime that our current model may not always accurately provide for. Furthermore, we aim to allow more customisation and scalability in patrol route options, such as by implementing solutions to the mutli-vehicle depot scheduling problem. Finally we aim to make the final map displayed more interactive, and possibly provide real-time guidance for patrol officers.
 
 ## Installation
 
