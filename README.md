@@ -70,7 +70,7 @@ Alternatively create your own python environment on VScode with ctrl+shift+p. VS
    On Windows, use `set` instead of `export`:
 
    ```bash
-   set FLASK_APP=actuallysuper.py
+   set FLASK_APP=actualsuper.py
    set FLASK_ENV=development
    flask run
    ```
